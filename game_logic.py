@@ -10,14 +10,16 @@ def get_random_word():
 
 
 def display_game_state(mistakes, secret_word, guessed_letters):
-    """Show current snowman stage + the word with underscores."""
     print(STAGES[mistakes])
 
     display_word = ""
     for letter in secret_word:
         display_word += (letter + " ") if letter in guessed_letters else "_ "
     print("Word:", display_word.strip())
+    print("Guessed:", " ".join(guessed_letters) if guessed_letters else "-")
+    print(f"Mistakes: {mistakes}/{len(STAGES)-1}")
     print()
+
 
 
 def is_word_guessed(secret_word, guessed_letters):
